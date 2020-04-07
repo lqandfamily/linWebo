@@ -21,6 +21,15 @@
   pymysql
   flask-cors
   ```
+ - uwsgi配置
+ uwsgi.ini位于项目根目录下，需要修改一下内容
+    ```
+    ＃ 项目目录
+    chdir=/home/blue/PycharmProjects/weboAnalyze
+    # 虚拟环境
+    home=/home/blue/PycharmProjects/weboAnalyze/venv
+    ```
+
 
 ###  开始安装
 
@@ -34,7 +43,32 @@
   成功后输出“建表成功!”
   ```
 
-- 启动web服务
+- 推荐启动方式uwsgi配合nginx
+
+  - python安装uWSGI模块
+
+  - uwsig.ini配置，前面已经做了
+
+  - nginx配置文件
+
+    ```
+        server {                                                                       
+            listen 80;                   # 服务器监听端口                                                 
+            server_name 127.0.0.1 # 这里写你的域名或者公网IP                                                    
+            charset      utf-8;          # 编码                                                  
+            client_max_body_size 75M;    # 之前写的关于GET和POST的区别，这里应该是原因之一吧                                                   
+    
+            location / {                                                                   
+                include uwsgi_params;         # 导入uwsgi配置                                            
+                uwsgi_pass unix:/home/blue/PycharmProjects/weboAnalyze/uwsgi/uwsgi.sock;               
+            }                                                                              
+        }
+    }
+    ```
+
+    
+
+- 启动web服务方式二(不建议使用，建议uwsgi配合nginx)
 
   ```
   ./start.sh
