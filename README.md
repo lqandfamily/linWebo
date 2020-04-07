@@ -19,6 +19,7 @@
   json
   flask
   pymysql
+  flask-cors
   ```
 
 ###  开始安装

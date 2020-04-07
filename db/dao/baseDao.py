@@ -13,7 +13,7 @@ import pymysql
 from db.dao.sql import initSqlList
 from security.encrypt import encrypt
 
-db = pymysql.connect("localhost", "root", "xxx", "webo", autocommit=1)
+db = pymysql.connect("localhost", "root", "1123", "webo", autocommit=1)
 
 
 def createTable():
