@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+.aside .menu-info a{
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+
+/*表格外观*/
+
+/*对齐*/
+.panel .column-1{
+    width: 3em;
+}
+
+.panel .column-2 {
+    width: 20em;
+}
+
+.panel .column-3 {
+    width: 10em;
+}
+
+.panel table {
+    display: block;
+    height: 90%;
+    overflow: auto;
+}
+
+.panel tr {
+    height: 2em;
+}
+
+.panel table tr:hover {
+    background-color: #BDBDBD;
+}
+
+.panel td, .panel th {
+    padding: 0 20px;
+    height: 2em;
+    line-height: 2em;
+}
+
+.panel .panel-download-all {
+    float: right;
+    margin-right: 20px;
+}
+
+.panel .panel-return {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    float: left;
+}

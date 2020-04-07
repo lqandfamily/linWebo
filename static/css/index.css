@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+html, body {
+    position: relative;
+    height: 100%;
+}
+
+/*测试边框*/
+/** {
+    border: 1px solid red;
+}*/
+
+/*=====头部=======================================================*/
+.header {
+    position: relative;
+    height: 100px;
+    background-color: #03A9F4;
+    box-shadow: 0 6px 5px #BDBDBD;
+}
+
+
+.header img {
+    position: absolute;
+    width: 32px;
+    overflow: hidden;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 32px;
+    color: #FFFFFF;
+    padding-top: 20px;
+    line-height: 32px;
+}
+
+.header a {
+    top: 0;
+    right: 0;
+    color: #FFFFFF;
+    font-size: 16px;
+    position: absolute;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: #607D8B;
+    width: 3em;
+    text-indent: 1em;
+}
+
+/*=====主要区域=======================================================*/
+.main {
+    margin: 0 auto;
+}
+
+.main h3 {
+    font: bold 20px "微软雅黑";
+    margin: 10px 0;
+    display: inline-block;
+    color: #FFFFFF;
+    background-color: #607D8B;
+    box-shadow: 0 3px 5px #BDBDBD;
+    padding:0.2em 5em;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.main {
+    text-align: center;
+}
+
+.main .current-data .current-data-chart {
+    width: 70%;
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*=====网站底部=======================================================*/
+.footer {
+    /*position: absolute;*/
+    color: #212121;
+    background-color: #dadce0;
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    height: 40px;
+    text-align: center;
+    /*background-color: antiquewhite;*/
+}
+
+.footer a {
+    color: #212121;
+    text-decoration: underline;
+}

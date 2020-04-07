@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>微博热搜榜分析后台系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-user-setting.css') }}">
+</head>
+<body>
+<header class="header clear-fix">
+    <h1>后台管理系统</h1>
+    <div class="user-head clear-fix">
+        <a href="/logout">登出</a>
+        <span>|</span>
+        <em>{{ username }}</em>
+    </div>
+</header>
+
+<div class="main clear-fix">
+    <aside class="aside">
+        <p class="menu-title">菜单</p>
+        <hr>
+        <ul class="menu-ul">
+            <li class="menu-info"><a href="/admin/infoList">信息查看</a></li>
+            <li class="menu-sys-setting"><a href="/admin/sysSetting">系统设置</a></li>
+            <li class="menu-user-setting"><a href="/admin/userSetting">用户设置</a></li>
+            {% if username == 'admin' %}
+                <li class="menu-user-manage"><a href="/admin/manageUser">用户管理</a></li>
+            {% endif %}
+        </ul>
+    </aside>
+
+    <article class="panel">
+        <h4 class="panel-title">用户设置</h4>
+        <form action="/user/modifyInfo   " method="post">
+            <table>
+                <tr>
+                    <td>用户名</td>
+                    <td>
+                        {% if username == 'admin' %}
+                            <label><input type="text" style="color: #757575" disabled name="panel-username"
+                                          value="{{ username }}"></label>
+                        {% else %}
+                            <label><input id="username" type="text" name="username"
+                                          value="{{ username }}"></label>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>原密码</td>
+                    <td><label><input id="origin-pwd" type="password" name="origin-pwd"></label></td>
+                </tr>
+                <tr>
+                    <td>新密码</td>
+                    <td><label><input id="new-pwd" type="password" name="new-pwd"></label></td>
+                </tr>
+                <tr>
+                    <td style="width: 11em"></td>
+                    <td><input id="btn-modify" class="circle-rect-btn-wrap btn-modify-user-info" type="submit"
+                               value="修改"></td>
+                </tr>
+            </table>
+        </form>
+    </article>
+</div>
+
+<footer class="footer">
+    网站底部
+</footer>
+</body>
+
+<script>
+    var userName = document.querySelector("#username");
+    var originPwd = document.querySelector("#origin-pwd");
+    var newPwd = document.querySelector("#new-pwd");
+    var btnModiy = document.querySelector("#btn-modify");
+
+    btnModiy.addEventListener('click', function (e) {
+        if (userName.value === '' || userName.value.length < 4) {
+            alert("用户名不能为空或长度小于4");
+            e.preventDefault();
+            return false;
+        }
+        if (originPwd.value === '' || originPwd.value.length < 4) {
+            alert("密码不能为空或长度小于4");
+            e.preventDefault();
+            return false;
+        }
+        if (newPwd.value === '' || newPwd.value.length < 4) {
+            alert("密码不能为空或长度小于4");
+            e.preventDefault();
+            return false;
+        }
+    });
+
+
+</script>
+</html>

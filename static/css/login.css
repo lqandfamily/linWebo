@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/** {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+body {
+}
+
+.login-wrap {
+    width: 30em;
+    margin: 0 auto;
+    background-color: #B3E5FC;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px #BDBDBD;
+    text-align: center;
+}
+
+.login-wrap h3 {
+    padding-top: 20px;
+    text-align: center;
+    color: #212121;
+    font: bold 20px "微软雅黑";
+}
+
+.login-wrap p {
+    color: red;
+    font-size: 16px;
+}
+
+.login-wrap .login-btn {
+    height: 30px;
+    line-height: 30px;
+    width: 10em;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 15px;
+    color: #FFFFFF;
+    background-color: #607D8B;
+    box-shadow: 0 3px 5px #BDBDBD;
+}
+
+.login-wrap .login-btn:active {
+    background-color: #757575;
+}

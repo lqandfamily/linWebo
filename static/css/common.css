@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/*闭合浮动*/
+.clear-fix::before, .clear-fix::after {
+    content: " ";
+    display: table;
+}
+
+.clear-fix::after {
+    clear: both;
+}
+
+/*矩形按钮*/
+.rect-btn-wrap {
+    color: #FFFFFF;
+    background-color: #607D8B;
+    box-shadow: 0 3px 5px #BDBDBD;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0 1em;
+}
+
+.rect-btn-wrap:active {
+    background-color: #212121;
+    /*圆角按钮*/
+
+}
+
+/*两头圆中间方的按钮*/
+.circle-rect-btn-wrap {
+    color: #FFFFFF;
+    background-color: #607D8B;
+    box-shadow: 0 3px 5px #BDBDBD;
+    text-align: center;
+    border-radius: 15px;
+    padding: 0 1em;
+}
+
+.circle-rect-btn-wrap:active {
+    background-color: #212121;
+}
+
+/*圆形按钮*/
+.circle-btn-wrap {
+    border-radius: 50%;
+    background-color: #607D8B;
+    color: #FFFFFF;
+    box-shadow: 0 5px 5px #BDBDBD;
+}
+
+/*全屏背景*/
+.bg-wrap {
+    padding-top: 10%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-image: url(https://cn.bing.com/th?id=OHR.CharlestonAzaleas_ZH-CN3924268565_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp);
+}
+
+/*标签+输入框*/
+.radius-label-input {
+    height: 30px;
+    line-height: 30px;
+    width: 20em;
+    /*display: inline-block;*/
+    margin: 3em auto;
+    /*text-align: center;*/
+    border-radius: 15px;
+    background: #FFFFFF;
+}
+
+
+.radius-label-input span {
+    float:left;
+    display: inline-block;
+    height: 30px;
+    color: #FFFFFF;
+    text-align: center;
+    background-color: #607D8B;
+    padding: 0 1em;
+    /*border-start-start-radius: 15px;*/
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+
+}
+
+.radius-label-input input {
+    background:none;
+    outline:none;
+    border:none;
+    float:left;
+    height: 28px;
+    line-height: 28px;
+    text-indent: 1em;
+    background: #FFFFFF;
+}

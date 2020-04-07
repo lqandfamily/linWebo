@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.aside .menu-sys-setting a{
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+
+.panel table td {
+    margin: 2px;
+}
+
+.panel table .crawl-timespan {
+    /*display: inline-block;*/
+    width: 5em;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>微博热搜榜分析后台系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin-user-manage.css') }}">
+</head>
+<body>
+<header class="header clear-fix">
+    <h1>后台管理系统</h1>
+    <div class="user-head clear-fix">
+        <a href="/logout">登出</a>
+        <span>|</span>
+        <em>{{ username }}</em>
+    </div>
+</header>
+
+<div class="main clear-fix">
+    <aside class="aside">
+        <p class="menu-title">菜单</p>
+        <hr>
+        <ul class="menu-ul">
+            <li class="menu-info"><a href="/admin/infoList">信息查看</a></li>
+            <li class="menu-sys-setting"><a href="/admin/sysSetting">系统设置</a></li>
+            <li class="menu-user-setting"><a href="/admin/userSetting">用户设置</a></li>
+            {% if username == 'admin' %}
+                <li class="menu-user-manage"><a href="/admin/manageUser">用户管理</a></li>
+            {% endif %}
+        </ul>
+    </aside>
+
+    <article class="panel">
+        <h4 class="panel-title">用户管理</h4>
+        <table>
+            <thead>
+            <tr>
+                <th class="column-1">ID</th>
+                <th class="column-2">用户名</th>
+                <th class="column-3">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for u in userList %}
+                <tr>
+                    <td class="column-1">{{ u.ID }}</td>
+                    <td class="column-2">{{ u.username }}</td>
+                    <td class="column-3">
+                        {% if u.username != 'admin' %}
+                            <a class="rect-btn-wrap" href="/admin/deleteUser/{{ u.ID }}">删除</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <!--对话框-->
+
+        <div
+                {% if repateName %}
+                    style="visibility: visible;"
+                {% endif %}
+                    class="edit-new-user">
+            <form method="post" action="/register">
+                <p>新增用户</p>
+                <div class="radius-label-input">
+                    <span>账号</span><label><input id="edit-name" type="text" name="username"></label>
+                </div>
+                <div class="radius-label-input">
+                    <span>密码</span><label><input id="edit-pwd" type="password" name="password"></label>
+                </div>
+                {% if repateName %}
+                    <p style="color: red;">用户名已经存在！</p>
+                {% endif %}
+                <div class="edit-btn-group">
+                    <label><input class="btn-edit-ok" type="submit" value="确定"></label>
+                    <label><input class="btn-edit-cancel" type="button" value="取消"></label>
+                </div>
+            </form>
+        </div>
+        <!--新建-->
+        <input class="circle-btn-wrap btn-new-user" type="button" name="btn-new-user" value="+">
+    </article>
+</div>
+
+<footer class="footer">
+    网站底部
+</footer>
+
+<script src="../static/js/adminUserManage.js"></script>
+</body>
+</html>

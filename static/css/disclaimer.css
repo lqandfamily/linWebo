@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/** {*/
+/*    border: 1px solid red;*/
+/*}*/
+
+.dis-wrap {
+    width: 70%;
+    margin: 100px  auto 0;
+    padding: 20px;
+    background-color: #607D8B;
+    color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.dis-wrap h4 {
+    font: bold 30px "微软雅黑";
+    text-align: center  ;
+}
+
+.dis-wrap p {
+    padding: 20px;
+}
+
+.dis-wrap .btn-wrap {
+    margin-top: 50px;
+    width: 10em;
+    float: right;
+}

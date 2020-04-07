@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+.aside .menu-user-manage a {
+    background-color: #607D8B;
+    color: #FFFFFF;
+}
+
+/*表格外观*/
+
+/*对齐*/
+.panel .column-1 {
+    width: 3em;
+}
+
+.panel .column-2 {
+    width: 20em;
+}
+
+.panel .column-3 {
+    width: 10em;
+}
+
+.panel table {
+    display: block;
+    height: 90%;
+    overflow: auto;
+}
+
+.panel tr {
+    height: 2em;
+}
+
+.panel table tr:hover {
+    background-color: #BDBDBD;
+}
+
+.panel td, .panel th {
+    padding: 0 20px;
+    height: 2em;
+    line-height: 2em;
+}
+
+/*新建用户*/
+.panel .edit-new-user {
+    position: absolute;
+    top: 200px;
+    left: 30%;
+    width: 500px;
+    height: 400px;
+    text-align: center;
+    background-color: #B3E5FC;
+    visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px #BDBDBD;
+}
+
+.panel .edit-new-user p {
+    margin-top: 30px;
+    font: bold 20px "微软雅黑";
+}
+
+
+.panel .edit-new-user .edit-btn-group {
+    float: right;
+    margin-top: 50px;
+    margin-right: 30px;
+}
+
+.panel .edit-new-user .btn-edit-cancel {
+    float: right;
+    padding: 0 0.5em;
+    box-shadow: none;
+    background-color: #607D8B;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px #FFFFFF solid;
+    border-right: none;
+}
+
+.panel .edit-new-user .btn-edit-ok {
+    float: right;
+    padding: 0 0.5em;
+    box-shadow: none;
+    background-color: #03A9F4;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px #FFFFFF solid;
+    border-left: none;
+}
+
+.edit-new-user .btn-edit-ok:active, .edit-new-user .btn-edit-cancel:active {
+    background-color: #212121;
+    color: #FFFFFF;
+}
+
+
+.panel .btn-new-user {
+    float: right;
+    margin-right: 20px;
+    margin-top: -20px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+
