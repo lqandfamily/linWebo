@@ -5,6 +5,7 @@ sys.path.append(os.getcwd())
 import json
 from datetime import timedelta
 from flask_cors import cross_origin, CORS
+from flask_paginate import Pagination, get_page_parameter
 from flask import Flask, render_template, url_for, request, session, redirect, send_from_directory, jsonify, Response
 from db.dao.user import UserDao
 from db.dao.hostSpot import HostSpotDao, SpiderDataDao, SpiderDateEntity
@@ -94,8 +95,21 @@ def modifyInfo():
 @app.route("/admin/infoList")
 def admin():
     if 'username' in session:
-        ll = spiderDataDao.selAll()
-        return render_template("admin-info-list.html", username=session['username'], spiderList=ll)
+        # 分页查询
+        page = request.args.get("page", type=int, default=1)  # 默认不传参数就是第一页
+        perPage = request.args.get("pageCount", type=int, default=10)  # 每页记录数,默认是10条
+        count = spiderDataDao.selCount()  # 总的记录数
+        pages = int(count / perPage) + 1
+        ll = []
+        if page <= pages:
+            ll = spiderDataDao.selByPage(page, perPage)
+        # 分页数据封装
+        pageData = {
+            "pages": pages,
+            "page": page,
+            "spiderList": ll
+        }
+        return render_template("admin-info-list.html", username=session['username'], **pageData)
     else:
         return redirect(url_for('login'))
 

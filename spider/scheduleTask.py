@@ -14,7 +14,7 @@ def job():
     print("爬取成功......")
 
 
-schedule.every(1).hours.do(job)
+schedule.every(1).seconds.do(job)
 
 if __name__ == "__main__":
     while True:

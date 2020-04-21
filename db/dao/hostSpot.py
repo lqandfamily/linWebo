@@ -13,21 +13,17 @@ class SpiderDataDao:
     def ins(self, entity):
         inSql = "insert into spider_date values (default, %s);"
 
-        cursor = db.cursor()
+        cursor = self.__cursor
         cursor.execute(inSql, time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(entity.crawlDate)))
-        db.commit()
-        cursor.close()
         # 返回date_id
         self.selDateId(entity)
 
         return True
 
     def selAll(self):
-        selSql = "select * from spider_date "
-        cursor = db.cursor()
-        cursor.execute(selSql)
-        result = cursor.fetchall()
-        cursor.close()
+        selSql = "select * from spider_date"
+        self.__cursor.execute(selSql)
+        result = self.__cursor.fetchall()
         if result is None:
             return None
         ll = []
@@ -35,6 +31,34 @@ class SpiderDataDao:
             tmp = SpiderDateEntity(x[0], x[1])
             ll.append(tmp)
         return ll
+
+    def selByPage(self, page, per_page):
+        """
+        分页查询
+        :param page: 当前页数
+        :param per_page: 每页的记录数
+        :return:
+        """
+        pageSql = "select * from spider_date LIMIT %s,%s;"
+        self.__cursor.execute(pageSql, [(page - 1) * per_page, per_page])
+        result = self.__cursor.fetchall()
+        if result is None:
+            return None
+        ll = []
+        for x in result:
+            tmp = SpiderDateEntity(x[0], x[1])
+            ll.append(tmp)
+        return ll
+
+    def selCount(self):
+        """
+        查询总的记录数
+        :return:
+        """
+        countSql = "select count(*) from spider_date;"
+        self.__cursor.execute(countSql)
+        result = self.__cursor.fetchone()
+        return result[0]
 
     def selDateId(self, entity):
         selSql = "select date_id from spider_date where crawl_date = %s;"
